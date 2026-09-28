@@ -1,1 +1,160 @@
-Welcome
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>M-BEAT — Mosquito Breeding Site Elimination and Assessment Team</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=Inter:wght@400;500;600&display=swap">
+<style>
+:root{--ink:#16211E;--paper:#F5F3EC;--panel:#fff;--teal:#0F3D3E;--deep:#0A2C2D;--leaf:#3D8361;--amber:#C7811A;--line:#D8D3C4;--muted:#5F6A65;--ripple:rgba(61,131,97,.55);
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ink:#E8EEEA;--paper:#0B1a1a;--panel:#112626;--line:#25403f;--muted:#9DB0A9;--deep:#CFE7DA}}
+:root[data-theme="dark"]{--ink:#E8EEEA;--paper:#0B1a1a;--panel:#112626;--line:#25403f;--muted:#9DB0A9;--deep:#CFE7DA}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 Inter,system-ui,sans-serif}
+h1,h2,h3{font-family:'Space Grotesk',system-ui,sans-serif;letter-spacing:-.015em;margin:0;line-height:1.15}
+a{color:inherit}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+
+/* top bar */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:var(--teal);border-bottom:3px solid var(--leaf);color:#EDEBDF}
+.bar .wrap{display:flex;align-items:center;gap:14px;padding-top:10px;padding-bottom:10px}
+.logos{display:flex;gap:8px;align-items:center}
+.logos img{height:34px;width:auto;background:#fff;border-radius:50%;padding:2px;transition:transform .3s}
+.logos img:hover{transform:rotate(-8deg) scale(1.12)}
+.slot{width:34px;height:34px;border-radius:50%;border:1.3px dashed rgba(237,235,223,.5);display:grid;place-items:center;font-size:7px;color:rgba(237,235,223,.7)}
+.bar b{font-family:'Space Grotesk',sans-serif;font-size:17px}
+.bar small{display:block;font-size:11px;opacity:.7;line-height:1.2}
+.bar .join{margin-left:auto;background:var(--leaf);color:#fff;text-decoration:none;font-weight:600;font-size:14px;padding:8px 16px;border-radius:999px;transition:background .2s,transform .2s}
+.bar .join:hover{background:#4a9a72;transform:translateY(-1px)}
+
+/* hero */
+.hero{position:relative;overflow:hidden;background:linear-gradient(180deg,var(--teal) 0%,var(--deep) 100%);color:#EDEBDF;text-align:center;padding:84px 20px 120px}
+.hero h1{font-size:clamp(34px,7vw,64px);max-width:15ch;margin:0 auto 16px;font-weight:700}
+.hero h1 span{display:inline-block;opacity:0;transform:translateY(28px);animation:rise .7s cubic-bezier(.2,.8,.2,1) forwards}
+.hero p{max-width:56ch;margin:0 auto 30px;opacity:0;animation:rise .8s .55s forwards;color:rgba(237,235,223,.85);font-size:17px}
+.hero .cta{opacity:0;animation:rise .8s .8s forwards}
+@keyframes rise{to{opacity:1;transform:none}}
+.btn{display:inline-block;background:var(--amber);color:#1a1200;font-weight:600;text-decoration:none;padding:14px 28px;border-radius:999px;position:relative;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(199,129,26,.45)}
+.btn:focus-visible,.bar a:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.btn::after{content:"";position:absolute;inset:0;border-radius:inherit;border:2px solid var(--amber);animation:pulse 2.2s infinite}
+@keyframes pulse{0%{transform:scale(1);opacity:.8}100%{transform:scale(1.35,1.6);opacity:0}}
+
+/* water surface with ripples */
+.water{position:absolute;left:0;right:0;bottom:0;height:130px;pointer-events:none}
+.ring{position:absolute;left:50%;bottom:34px;width:20px;height:6px;border:2px solid var(--ripple);border-radius:50%;transform:translateX(-50%) scale(0);opacity:0;animation:ripple 4.5s ease-out infinite}
+.ring:nth-child(2){animation-delay:1.5s;left:22%}.ring:nth-child(3){animation-delay:3s;left:78%}
+@keyframes ripple{0%{transform:translateX(-50%) scale(0);opacity:.9}100%{transform:translateX(-50%) scale(16);opacity:0}}
+.drop{position:absolute;left:50%;top:-40px;width:12px;height:18px;background:#8fd0ad;border-radius:50% 50% 50% 50%/65% 65% 35% 35%;animation:fall 4.5s cubic-bezier(.55,0,1,.6) infinite}
+@keyframes fall{0%{transform:translate(-50%,0);opacity:1}18%{transform:translate(-50%,128px);opacity:1}19%,100%{transform:translate(-50%,128px);opacity:0}}
+.wave{position:absolute;bottom:0;left:0;width:200%;height:40px;animation:drift 9s linear infinite}
+@keyframes drift{to{transform:translateX(-50%)}}
+.wavefill{fill:var(--paper)}
+.wiggler{position:absolute;bottom:14px;left:-60px;width:44px;animation:swim 16s linear infinite}
+@keyframes swim{to{left:calc(100% + 60px)}}
+.wiggler svg{animation:wig .5s ease-in-out infinite alternate;transform-origin:left center}
+@keyframes wig{from{transform:rotate(-14deg) skewX(-8deg)}to{transform:rotate(14deg) skewX(8deg)}}
+
+/* sections */
+section{padding:64px 0 8px}
+h2{font-size:clamp(26px,4vw,34px);color:var(--deep);margin-bottom:8px}
+.lead{color:var(--muted);max-width:62ch;margin:0 0 28px}
+.goals{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.goals li{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--leaf);border-radius:4px;padding:16px 20px;transition:transform .25s,border-color .25s,box-shadow .25s}
+.goals li:hover{transform:translateX(6px);border-left-color:var(--amber);box-shadow:0 6px 18px rgba(0,0,0,.08)}
+.perks{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;padding:0;margin:0;list-style:none}
+.perks li{display:flex;gap:14px;align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px;transition:transform .25s,box-shadow .25s}
+.perks li:hover{transform:translateY(-5px) rotate(-.6deg);box-shadow:0 12px 24px rgba(0,0,0,.1)}
+.perks svg{flex:none;width:38px;height:38px;padding:8px;border-radius:50%;background:var(--leaf);stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:transform .5s}
+.perks li:hover svg{transform:rotate(360deg)}
+.perks span{font-weight:500}
+
+.reg{margin:72px 0 0;background:var(--teal);color:#EDEBDF;border-radius:14px;padding:40px 28px;text-align:center;position:relative;overflow:hidden}
+.reg::before{content:"";position:absolute;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(61,131,97,.5),transparent 65%);top:-220px;right:-120px;animation:float 8s ease-in-out infinite alternate}
+@keyframes float{to{transform:translate(-60px,50px)}}
+.reg>*{position:relative}
+.reg h2{color:#fff}.reg p{max-width:56ch;margin:8px auto 22px;color:rgba(237,235,223,.85)}
+.note{margin:22px 0 0;text-align:center;color:var(--muted);font-size:14px;max-width:70ch;margin-inline:auto}
+footer{margin-top:56px;padding:22px 0 40px;border-top:1px solid var(--line);color:var(--muted);font-size:12.5px;text-align:center}
+
+/* scroll reveal: one soft entrance per group, only when JS is present */
+.js .rv{opacity:0;transform:translateY(22px);transition:opacity .7s,transform .7s cubic-bezier(.2,.8,.2,1);transition-delay:var(--d,0s)}
+.js .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.hero h1 span,.hero p,.hero .cta,.js .rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<header class="bar"><div class="wrap">
+  <div class="logos">
+    <img src="https://mbeat2026.github.io/loyolacollege/assets/loyola-logo.png" alt="Loyola College" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'slot',textContent:'LOYOLA'}))">
+    <img src="https://mbeat2026.github.io/loyolacollege/assets/cimser-logo.png" alt="CIMSER" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'slot',textContent:'CIMSER'}))">
+    <img src="https://mbeat2026.github.io/loyolacollege/assets/mbeat-logo.png" alt="M-BEAT" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'slot',textContent:'M-BEAT'}))">
+    <img src="https://mbeat2026.github.io/loyolacollege/assets/gcc-logo.png" alt="Greater Chennai Corporation" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'slot',textContent:'GCC'}))">
+  </div>
+  <div><b>M-BEAT</b><small>Loyola College · CIMSER</small></div>
+  <a class="join" href="https://mbeat-registration.vercel.app/" target="_blank" rel="noopener">Register</a>
+</div></header>
+
+<div class="hero">
+  <h1><span>Stop</span> <span style="animation-delay:.12s">mosquitoes</span> <span style="animation-delay:.24s">where</span> <span style="animation-delay:.36s">they</span> <span style="animation-delay:.48s">start.</span></h1>
+  <p>Mosquito Breeding Site Elimination and Assessment Team: student-led teams that find and remove breeding sources on Chennai college campuses.</p>
+  <div class="cta"><a class="btn" href="https://mbeat-registration.vercel.app/" target="_blank" rel="noopener">Register as a student</a></div>
+  <div class="water" aria-hidden="true">
+    <div class="drop"></div>
+    <div class="ring"></div><div class="ring"></div><div class="ring"></div>
+    <div class="wiggler"><svg viewBox="0 0 44 14" width="44"><path d="M2 7 C10 1,18 13,26 7 S38 3,42 7" stroke="#8fd0ad" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="3" cy="7" r="3.2" fill="#8fd0ad"/></svg></div>
+    <svg class="wave" viewBox="0 0 1200 40" preserveAspectRatio="none"><path d="M0 20 Q75 0 150 20 T300 20 T450 20 T600 20 T750 20 T900 20 T1050 20 T1200 20 V40 H0Z" fill="#F5F3EC" class="wavefill"/></svg>
+  </div>
+</div>
+
+<main class="wrap">
+  <section id="about">
+    <h2 class="rv">What M-BEAT sets out to do</h2>
+    <p class="lead rv">An initiative by the Centre for Insect Molecular Studies and Environmental Research (CIMSER), PG &amp; Research Department of Advanced Zoology and Biotechnology, Loyola College (Autonomous), Chennai, with Greater Chennai Corporation and AHC Foundation.</p>
+    <ul class="goals">
+      <li class="rv">Identify and eliminate mosquito breeding sources within participating college premises through regular surveillance and source-reduction activities by student-led teams.</li>
+      <li class="rv">Establish Standard Operating Procedures (SOPs) for maintaining mosquito-breeding-free campuses.</li>
+      <li class="rv">Promote Behaviour Change Communication (BCC) activities to update college authorities, faculty, students and support staff on vector surveillance, source reduction and preventive measures.</li>
+      <li class="rv">Institutionalize periodic inspections, self-monitoring and reporting mechanisms in collaboration with Corporation officials.</li>
+      <li class="rv">Recognize and certify colleges that consistently maintain breeding-free premises based on predefined criteria.</li>
+      <li class="rv">Develop participating colleges as model institutions that can help replicate this initiative across other educational institutions in Chennai.</li>
+    </ul>
+  </section>
+
+  <section id="benefits">
+    <h2 class="rv">What students gain</h2>
+    <p class="lead rv">Practical exposure that encourages you to take an active role in environmental health, vector surveillance and community service.</p>
+    <ul class="perks">
+      <li class="rv"><svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="M8.5 14l-1.5 8 5-3 5 3-1.5-8"/></svg><span>M-BEAT Membership Certificate</span></li>
+      <li class="rv" style="--d:.06s"><svg viewBox="0 0 24 24"><path d="M12 21c-4-3-7-6-7-10a7 7 0 0114 0c0 4-3 7-7 10z"/><path d="M12 11V7"/></svg><span>Environmental Volunteer Recognition</span></li>
+      <li class="rv" style="--d:.12s"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/></svg><span>Mosquito &amp; Vector-Control Field Experience</span></li>
+      <li class="rv" style="--d:.18s"><svg viewBox="0 0 24 24"><path d="M9 11l3 3 8-8"/><path d="M20 12v7a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h9"/></svg><span>Practical Field Assessment Experience</span></li>
+      <li class="rv" style="--d:.24s"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"/></svg><span>Greater Chennai Corporation Collaboration Experience</span></li>
+      <li class="rv" style="--d:.3s"><svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"/><path d="M9 12h7M9 16h7"/></svg><span>CV / Resume Enhancement</span></li>
+      <li class="rv" style="--d:.36s"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3.5 3-6 6-6s6 2.5 6 6M15 14.5c3 0 6 1.5 6 5"/></svg><span>Community Service Experience</span></li>
+    </ul>
+  </section>
+
+  <div class="reg rv" id="register">
+    <h2>Ready to join?</h2>
+    <p>Interested students can register online. Confirmation is sent by email, and you will be added to the WhatsApp group.</p>
+    <a class="btn" href="https://mbeat-registration.vercel.app/" target="_blank" rel="noopener">Open the registration form</a>
+  </div>
+  <p class="note rv">To college administration: please circulate the registration link among interested students and encourage their participation in this initiative.</p>
+
+  <footer>Centre for Insect Molecular Studies &amp; Environmental Research · PG &amp; Research Dept. of Advanced Zoology &amp; Biotechnology, Loyola College (Autonomous), Chennai — with Greater Chennai Corporation &amp; AHC Foundation</footer>
+</main>
+
+<script>
+document.documentElement.classList.add('js');
+(function(){
+  var els=document.querySelectorAll('.rv');
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15});
+  els.forEach(function(e){io.observe(e)});
+})();
+</script>
+</body>
+</html>
